@@ -1,0 +1,67 @@
+{
+  "name": "script2markdown",
+  "displayName": "Script2Markdown",
+  "description": "Bundles C# files into a single Markdown file for LLMs.",
+  "version": "0.0.1",
+  "publisher": "berkecuhadar",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/berkecuhadar/script2markdown"
+  },
+  "icon": "icon.png",
+  "keywords": [
+    "csharp",
+    "markdown",
+    "llm",
+    "chatgpt",
+    "unity"
+  ],
+  "engines": {
+    "vscode": "^1.138.0"
+  },
+  "categories": [
+    "Other",
+    "Machine Learning"
+  ],
+  "activationEvents": [],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "script2markdown.exportToMd",
+        "title": "Script2Markdown: Export C# to MD"
+      }
+    ],
+    "menus": {
+      "explorer/context": [
+        {
+          "when": "explorerResourceIsFolder",
+          "command": "script2markdown.exportToMd",
+          "group": "navigation"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.138.0",
+    "@types/mocha": "^10.0.10",
+    "@types/node": "24.x",
+    "typescript-eslint": "^8.61.1",
+    "eslint": "^10.5.0",
+    "typescript": "^6.0.3",
+    "@vscode/test-cli": "^0.0.15",
+    "@vscode/test-electron": "^3.0.0"
+  },
+  "overrides": {
+    "diff": "^8.0.4",
+    "serialize-javascript": "^7.0.6"
+  }
+}
